@@ -1,0 +1,39 @@
+{
+  "name": "tau-intro-to-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/",
+    "test:all-browsers-and-tests": "npx playwright test tests/ --project=all-browsers-and-tests",
+    "test:headed": "npx playwright test tests/ --project=chromium --headed",
+    "test:debug": "npx playwright test tests/ --project=chromium --debug",
+    
+    "test:simple-linear-demo": "npx playwright test tests/simple-linear-demo --project=chromium",
+    "test:aaa-pom": "npx playwright test tests/aaa-patern-demo.spec --project=chromium",
+    "test:data-driven": "npx playwright test tests/header-navigation-demo.spec --project=chromium",
+    "test:visualtesting-default": "npx playwright test tests/aaa-patern-visualtesting-default.spec --project=chromium",
+    "test:visualtesting-fixtures": "npx playwright test tests/aaa-patern-visualtesting-fixtures.spec --project=chromium",
+        
+    "test:show-report": "npx playwright show-report",
+    "test:report-html-custom-output": "cross-env PLAYWRIGHT_HTML_OUTPUT_DIR=custom-reports npx playwright test tests/hello-world --reporter=html --project=chromium",
+    "test:report-junit": "set PLAYWRIGHT_JUNIT_OUTPUT_NAME=custom-reports/test-results.xml && npx playwright test tests/hello-world --reporter=junit --project=chromium",
+    "test:report-json": "set PLAYWRIGHT_JSON_OUTPUT_NAME=custom-reports/test-results.json && npx playwright test tests/hello-world --reporter=json --project=chromium",
+    "test:smoke": "npx playwright test tests/ --grep @smoke --project=chromium",
+    "test:non-smoke": "npx playwright test tests/simple-linear-demo --grep-invert @smoke --project=chromium"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@applitools/eyes-playwright": "^1.45.2",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.5",
+    "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "dotenv-cli": "^11.0.0"
+  }
+}
