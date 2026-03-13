@@ -35,11 +35,12 @@ tau-intro-to-playwright/
 ├── package.json                  # Dependencies and test scripts
 ├── .env                         # Environment variables (APPLITOOLS_API_KEY)
 │
-├── tests/                       # Test files organized by pattern and complexity
-│   ├── simple-linear-demo.spec.ts         # Linear pattern tests (basic intro)
-│   ├── aaa-patern-demo.spec.ts            # AAA pattern + Page Object Model
-│   ├── header-navigation-demo.spec.ts     # Data-driven tests with POM
-│   ├── aaa-patern-demo-visual-testing.spec.ts      # Visual testing - manual Eyes setup
+├── tests/                                          # Test files organized by pattern and complexity
+│   ├── simple-linear-demo.spec.ts                  # Linear pattern tests (basic intro)
+│   ├── aaa-patern-demo.spec.ts                     # AAA pattern + Page Object Model
+│   ├── header-navigation-demo.spec.ts              # Data-driven tests with POM
+│   ├── aaa-patern-visualtesting-default.spec.ts    # Visual testing - manual Eyes setup
+│   ├── aaa-patern-visualtesting-fixtures.spec.ts   # Visual testing - fixture Eyes setup
 │   ├── applitools-demo-visual-testing.spec.ts      # Visual testing on Applitools demo site
 │   └── ... (additional test files)
 │
@@ -83,8 +84,8 @@ This project demonstrates multiple test patterns, each with distinct advantages:
 | **Page Object Model (POM)** | Encapsulates page elements and actions into reusable classes | Pages in `pages/` directory | Class inheritance, method reuse, maintainability |
 | **Component Pattern** | Extracts UI components into separate classes | `header-component.ts`, `search-modal.ts` | Component composition, locator encapsulation |
 | **Data-Driven Tests** | Parameterized tests iterating over multiple scenarios | `header-navigation-demo.spec.ts` | Array iteration, dynamic test generation |
-| **Visual Testing (Manual)** | Direct Eyes API usage with manual setup | `aaa-patern-demo-visual-testing.spec.ts` | Eyes open/close, batch management, configuration |
-| **Visual Testing (Fixture)** | Applitools Eyes via fixture (recommended) | `applitools-demo-visual-testing.spec.ts` | Fixture-based eyes object, auto setup/teardown, race condition prevention |
+| **Visual Testing (Manual)** | Direct Eyes API usage with manual setup | `aaa-patern-visualtesting-default.spec.ts` | Eyes open/close, batch management, configuration |
+| **Visual Testing (Fixture)** | Applitools Eyes via fixture (recommended) | `aaa-patern-visualtesting-fixtures.specc.ts` | Fixture-based eyes object, auto setup/teardown, race condition prevention |
 
 ### Recommended Pattern Progression
 
@@ -262,15 +263,15 @@ Each test file demonstrates specific concepts and patterns:
 | **simple-linear-demo.spec.ts** | Basic intro without POM | test.describe(), getByRole(), test tagging (@smoke) | Standard |
 | **aaa-patern-demo.spec.ts** | AAA pattern + POM | beforeEach(), test.step(), page object methods | Standard |
 | **header-navigation-demo.spec.ts** | Data-driven + POM | Loop-based test generation, multiple scenarios | Standard |
-| **aaa-patern-demo-visual-testing.spec.ts** | Manual Eyes setup | Eyes API, VisualGridRunner, batch management | Standard |
-| **applitools-demo-visual-testing.spec.ts** | Fixture-based visual tests | Eyes fixture, automated setup/teardown (recommended) | Eyes Fixture |
+| **aaa-patern-visualtesting-default.spec.ts** | Manual Eyes setup | Eyes API, VisualGridRunner, batch management | Standard |
+| **aaa-patern-visualtesting-fixtures.spec.ts** | Fixture-based visual tests | Eyes fixture, automated setup/teardown (recommended) | Eyes Fixture |
 
 ### Learning Path
 
 1. Start with `simple-linear-demo.spec.ts` to understand basic Playwright
 2. Move to `aaa-patern-demo.spec.ts` for structured test patterns
 3. Explore `header-navigation-demo.spec.ts` for data-driven scenarios
-4. Add visual testing with `applitools-demo-visual-testing.spec.ts` (fixture-based)
+4. Add visual testing with `aaa-patern-visualtesting-default.spec.ts` (manual config) and `aaa-patern-visualtesting-fixtures.spec.ts` (fixture-based)
 
 ---
 
